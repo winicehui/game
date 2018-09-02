@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="800px" height="600px"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xhtml="http://www.w3.org/1999/xhtml"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:a="http://www.adobe.com/svg10-extensions" a:timeline="independent"
+     onload="top.load(evt)">
+
+  <defs>
+    <clipPath id="gameareaclip">
+      <rect x="20" y="20" width="600" height="560"/>
+    </clipPath>
+
+    <clipPath id="startingclip">
+      <rect x="20" y="20" width= "740" height="600"/>
+    </clipPath>
+
+    
+
+    <linearGradient id="background_pattern" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgb(176,224,230);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(106,90,205);stop-opacity:1" />
+    </linearGradient>
+
+    <radialGradient id="player_color">
+      <stop offset="0.0" style="stop-color:yellow;stop-opacity:1"/>
+      <stop offset="0.8" style="stop-color:yellow;stop-opacity:1"/>
+      <stop offset="1.0" style="stop-color:orange;stop-opacity:1"/>
+    </radialGradient>
+
+    <g id="monster">
+        <rect x="0.5" y="14" width="29" height="26"
+         style="fill:rgb(128,0,0);stroke:rgb(0,0,0);stroke-width:1">
+         <animateTransform type="scale" attributeName="transform" attributeType="XML" dur="5s" values="1;1.5;1" repeatCount="indefinite"/>
+       </rect>
+       <ellipse cx="15" cy="14.5" rx="14.75" ry="3.5"
+         style="stroke:rgb(0,0,0);stroke-width:1;fill-opacity:1;stroke-opacity:1">
+         <animateTransform type="scale" attributeName="transform" attributeType="XML" dur="5s" values="1;1.5  ;1" repeatCount="indefinite"/>
+       </ellipse>
+       <path d="" style="fill:none;stroke:rgb(0,0,0);stroke-width:1"/>
+       <path d="M29.5 19.5556 C41.4754 20.7531 42.3655 34.3333 29.5 34.3333"
+         style="fill:none;stroke:rgb(0,0,0);stroke-width:3"/>
+       <path d="M9.16667 14.1111 C11.3731 10.0659 4.95094 7.26026 9.94444 5.44444"
+        transform="translate(-3.66667 0)"
+         style="fill:none;stroke:rgb(64,64,64);stroke-width:3"/>
+       <path d="M16.3889 13.4444 C19.6555 8.31123 14.0423 7.63812 16.0556 5.22222"
+        transform="translate(-4.66667 0.666667)"
+         style="fill:none;stroke:rgb(32,32,32);stroke-width:3"/>
+       <path d="M23.3889 14.3333 C24.8984 7.79217 27.2436 10.4312 22.0556 4.66667"
+        transform="translate(25.2338 14.3333) scale(1.27968 1.33333) translate(-25.2338 -14.3333) translate(-4.08089 0)"
+        
+         style="fill:none;stroke:rgb(64,64,64);stroke-width:3"/>
+       <path d="M24.1667 13.6667 C22.5137 9.12098 30.0838 9.38049 27.0556 4.33333"
+        transform="translate(24.1667 13.6667) scale(1.28714 1.14286) translate(-24.1667 -13.6667)"
+        
+         style="fill:none;stroke:rgb(32,32,32);stroke-width:3"/>
+       <path d="" style="fill:none;stroke:rgb(32,32,32);stroke-width:3"/>
+       <path d="" style="fill:none;stroke:rgb(32,32,32);stroke-width:3"/>
+       <path d="" style="fill:none;stroke:rgb(32,32,32);stroke-width:3"/>
+       <rect x="74" y="11" width="1" height="1"
+         style="fill:rgb(255,255,255);stroke:rgb(255,255,255);stroke-width:1"/>
+
+
+    </g>
+
+    <g id="goodthing">
+        <rect x="10" y="33" width="20" height="7"
+         style="fill:rgb(120,30,30);stroke:none;stroke-width:1"/>
+       <polygon points="20,10 38.5,33 1.5,33"
+         style="fill:rgb(0,128,0);stroke:rgb(0,0,0);stroke-width:1"/>
+       <polygon points="20,5 35,25 5,25" style="fill:rgb(0,128,0);stroke:rgb(0,0,0);stroke-width:1"/>
+       <polygon points="20,5 31.5,18 8.5,18"
+         style="fill:rgb(0,128,0);stroke:rgb(0,0,0);stroke-width:1"/>
+       <ellipse cx="20" cy="4" rx="3.5" ry="3.5"
+         style="fill:rgb(255,255,0);stroke:rgb(0,0,0);stroke-width:1"/>
+    </g>
+    <g id="bullet">
+      <circle cx="5" cy="5" r="5" style="fill:red"/>
+      <circle cx="6" cy="3" r="1" style="fill:pink"/>
+    </g>
+
+  </defs>
+
+  <rect width="100%" height="100%" style="fill:url(#background_pattern);stroke:black;stroke-width:10" />
+
+
+  
+    <!--add your score element here-->
+  <g id="scoretracker" transform="translate(640, 120)" style="visibility:hidden">
+    <text x="70" y="0"
+     style="fill:orange;font-size:25px;font-weight:bold;text-anchor:middle">
+      Score:
+    </text>
+    <rect x="0" y="10" width="140" height="35" style="fill:white; stroke: #191970" />
+    <text id="score" x="70" y="36"
+     style="fill:orange;font-size:25px;text-anchor:middle"> 
+   </text>
+  </g>
+
+  <!-- add your time element here-->
+  <g id="timetracker" transform="translate(640, 240)" style="visibility:hidden">
+    <text x="70" y="0"
+     style="fill:orange;font-size:25px;font-weight:bold;text-anchor:middle">
+      Time:
+    </text>
+    <rect x="0" y="10" width="140" height="35" style="fill:white; stroke:#191970" />
+    <rect id="timebar" x="0" y="10" width="140" height="35" style="fill:darkblue" />
+    <text id="timeleft" x="70" y="36"
+     style="fill:orange;font-size:25px;text-anchor:middle"> 
+   </text>
+  </g>
+
+  <g id="bullettracker" transform="translate(640,320)" style= "visibility:hidden">
+    <text x="70" y="0"
+     style="fill:orange;font-size:25px;font-weight:bold;text-anchor:middle">
+      Bullets:
+    </text>
+    <rect x="0" y="10" width="140" height="35" style="fill:white stroke:#191970" />
+    <text id="bulletleft" x="70" y="36"
+     style="fill:orange;font-size:25px;text-anchor:middle"> 
+   </text>
+  </g>
+
+  <g id="nametracker" transform="translate(640,480)" style= "visibility:hidden">
+          <text id= "playername" x="70" y="0"
+           style="fill:black;font-size:25px;font-weight:bold;text-anchor:middle">
+          </text>
+          <rect x="0" y="20" width="140" height="35" style="fill:white" />
+          <text id="playerscore" x="70" y="45"
+           style="fill:black;font-size:25px;text-anchor:middle"> 
+           
+         </text>
+  </g>
+
+  <g id="restart" onclick="top.restart()" transform="translate(640, 10)" style="visibility:hidden">
+          <rect x="0" y="20" width="140" height="35" style="fill:white;stroke:red;stroke-width:2" />
+          <text x="70" y="45" style="fill:red;font-size:25px;text-anchor:middle">Restart?</text>
+  </g>
+
+
+  <g style= "clip-path:url(#startingclip)">
+    <g transform="translate(20,20)">
+      <g id= "startingarea" transform= "translate(0,0)" width="740" height="600" style="visibility:visible">
+        
+        <g onclick="top.setZoom()" transform="translate(200, 500)">
+          <rect x="0" y="0" width="140" height="40" style="fill:white;stroke:#191970;stroke-width:2" />
+          <text x="70" y="28" style="fill:#191970;font-size:25px;text-anchor:middle">Zoom</text>
+        </g>
+
+        <g onclick="top.setNormal()" transform="translate(400, 500)">
+          <rect x="0" y="0" width="140" height="40" style="fill:white;stroke:#191970;stroke-width:2" />
+          <text x="70" y="28" style="fill:#191970;font-size:25px;text-anchor:middle">Normal</text>
+        </g>
+
+
+        <rect x="20" y="20" width="700" height="440" style="fill:#DCDCDC; stroke:#191970;stroke-width:5"/>
+        <text x="370" y="80"
+         style="fill: black;font-size:50px;font-weight:bold; text-anchor:middle">
+          SAVE THE SNOWMAN
+        </text>
+
+        <text x="100" y="120"
+         style="fill:#4B0082;font-size:20px;font-weight:bold">
+          Help the lost snowman get back to his home before Christmas!
+        </text>
+
+        <text x="100" y="150"
+         style="fill:   #4B0082;font-size:20px;font-weight:bold">
+          Collect all the Christmas Trees to earn points, and make it  
+         </text>
+
+         <text x="100" y="180"
+         style="fill: #4B0082;font-size:20px;font-weight:bold">
+          back to the igloo. Avoid the hot chocolate, or else you will
+         </text>
+
+         <text x="100" y="210"
+         style="fill: #4B0082;font-size:20px;font-weight:bold">
+          melt. Some hot chocolate may throw marshmallows at you.
+         </text>
+         
+        <text x="100" y="270"
+        style="fill:#DB7093;font-size:20px;font-weight:bold">
+          Use the following keys to play.
+        </text>
+
+        <text x="100" y="300"
+         style="fill:#DB7093;font-size:20px;font-weight:bold">
+          'a'- left
+        </text>
+
+        <text x="100" y="330"
+         style="fill:#DB7093;font-size:20px;font-weight:bold">
+          'd' - right
+        </text>
+
+        <text x="400" y="300"
+         style="fill:#DB7093;font-size:20px;font-weight:bold">
+          'w' - jump
+        </text>
+
+        <text x="400" y="330"
+         style="fill: #DB7093;font-size:20px;font-weight:bold">
+          space - shoot
+        </text>
+
+        <text x="100" y="390"
+         style="fill: #DAA520;font-size:20px;font-weight:bold">
+          
+          Play in Zoom mode, and earn double the points.
+        </text>
+
+
+        <text x="500" y="440"
+         style="fill:black;font-size:20px;font-weight:bold">
+          
+          Winice Hui, 20570726
+        </text>
+      </g>
+
+    </g>
+  </g>
+
+  <g style="clip-path:url(#gameareaclip)">
+    <g transform="translate(20,20)">
+      <g id="gamearea" transform="translate(0,0)" width="600" height="560" style="visibility:hidden">
+        
+        <rect x="0" y="0" width="600" height="560" style="fill:white; stroke:#191970;stroke-width:10" />
+
+
+        <g id="platforms">
+            <rect style="fill:lightblue" width="100" height="20" x="5" y="60" type=""/>
+            <rect style="fill:lightblue" width="100" height="20" x="200" y="60" type=""/>
+            <rect style="fill:lightblue" width="40" height="40" x="400" y="70" type=""/>
+            <rect style="fill:lightblue" width="95" height="20" x="500" y="100" type=""/>          
+            <rect style="fill:lightblue" width="120" height="20" x="220" y="120" type=""/>
+            <rect style="fill:lightblue" width="120" height="20" x="200" y="140" type=""/>
+            <rect style="fill:lightblue" width="120" height="20" x="180" y="160" type=""/>
+            <rect style="fill:lightblue" width="80" height="20" x="140" y="180" type=""/>
+            <rect style="fill:lightblue" width="60" height="20" x="5" y="200" type=""/>
+            <rect style="fill:lightblue" width="125" height="20" x="470" y="180" type=""/>
+            <rect style="fill:lightblue" width="60" height="20" x="40" y="280" type=""/>
+            <rect style="fill:lightblue" width="140" height="20" x="320" y="260" type=""/>
+            <rect style="fill:lightblue" width="100" height="20" x="280" y="240" type=""/>
+            <rect style="fill:lightblue" width="60" height="20" x="160" y="260" type=""/>
+            <rect style="fill:lightblue" width="35" height="20" x="560" y="280" type=""/>
+            <rect style="fill:lightblue" width="200" height="20" x="5" y="360" type=""/>
+            <rect style="fill:lightblue" width="75" height="20" x="520" y="300" type=""/>
+            <rect style="fill:lightblue" width="100" height="20" x="280" y="320" type=""/>
+            <rect style="fill:lightblue" width="20" height="20" x="380" y="320" type=""/>
+            <rect style="fill:lightblue" width="60" height="20" x="380" y="340" type=""/>
+            <rect style="fill:lightblue" width="120" height="20" x="180" y="340" type=""/>
+            <rect style="fill:lightblue" width="60" height="20" x="500" y="380" type=""/>
+            <rect style="fill:lightblue" width="80" height="20" x="180" y="460" type=""/>
+            <rect style="fill:lightblue" width="80" height="20" x="200" y="440" type=""/>
+            <rect style="fill:lightblue" width="80" height="20" x="220" y="420" type=""/>
+            <rect style="fill:lightblue" width="30" height="20" x="420" y="440" type=""/>
+            <rect style="fill:lightblue" width="95" height="20" x="500" y="440" type=""/>
+            <rect style="fill:lightblue" width="60" height="20" x="120" y="460" type=""/>
+            <rect style="fill:lightblue" width="160" height="20" x="360" y="460" type=""/>
+            <rect style="fill:lightblue" width="40" height="20" x="140" y="520" type=""/>
+            <rect style="fill:lightblue" width="20" height="20" x="300" y="500" type=""/>
+            <rect style="fill:lightblue" width="80" height="20" x="240" y="520" type=""/>
+            <rect style="fill:lightblue" width="20" height="20" x="500" y="520" type=""/>
+            <rect style="fill:lightblue" width="20" height="20" x="60" y="520" type=""/>
+            <rect style="fill:lightblue" width="20" height="20" x="60" y="500" type=""/>
+            <rect style="fill:lightblue" width="20" height="20" x="60" y="480" type=""/>
+          
+            <!-- the floor -->
+            <rect style="fill:lightblue" width="590" height="20" x="5" y="535" type=""/>
+
+        </g>
+
+        <g>
+          <rect id="exit" style="fill:black" width="60" height="50" x="520" y="70"/>
+          <text x="550" y="105" style="font-size:25px;text-anchor:middle; fill:white">
+            Exit
+          </text>
+        </g>
+
+        <g id="monsters"/>
+        <g id="bullets"/>
+        <g id= "goodthings"/>
+
+        <g>
+          <rect id="portal1" style="fill:darkgray" width="60" height="50" x="530" y="485"/>
+          <text x="560" y="520" style="font-size:15px;text-anchor:middle; fill:white">
+            Portal!
+          </text>
+        </g>
+
+        <g>
+          <rect id="portal2" style="fill:darkgray" width="60" height="50" x="20" y="10"/>
+          <text x="50" y="45" style="font-size:15px;text-anchor:middle; fill:white">
+            Portal!
+          </text>
+        </g>
+
+
+        <g id="player">
+          <ellipse cx="20" cy="26.5" rx="13" ry="13"
+             style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+           <ellipse cx="20" cy="8.5" rx="8" ry="8"
+             style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+           <ellipse cx="20" cy="22.5" rx="0.5" ry="0.5"
+             style="fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1"/>
+           <ellipse cx="20" cy="26.5" rx="0.5" ry="0.5"
+             style="fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1"/>
+           <ellipse cx="20" cy="30.5" rx="0.5" ry="0.5"
+             style="fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1"/>
+           <ellipse cx="17.5" cy="6.5" rx="0.5" ry="0.5"
+             style="fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1"/>
+           <ellipse cx="21.5" cy="6.5" rx="0.5" ry="0.5"
+             style="fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1"/>
+           <path d="M15.4583 9.83333 C15.8919 14.1693 24.0417 14.4575 24.0417 9.5"
+             style="fill:none;stroke:rgb(0,0,0);stroke-width:1"/>
+           <path d="M11.5417 15.1667 C14.6213 18.2463 25.107 19.7401 27.9583 15.6667"
+             style="fill:none;stroke:rgb(192,0,0);stroke-width:5"/>
+           <path d="" style="fill:none;stroke:rgb(192,0,0);stroke-width:5"/>
+           <path d="" style="fill:none;stroke:rgb(0,0,0);stroke-width:1"/>
+           <path d="M6.875 24.75 C6.875 24.75 1.75 22.25 0.0416667 21.4167"
+             style="fill:none;stroke:rgb(0,0,0);stroke-width:1"/>
+           <path d="M32.7083 24 C32.7083 24 38.0208 22.1875 39.7917 21.5833"
+             style="fill:none;stroke:rgb(0,0,0);stroke-width:1"/>
+           <path d="M25.375 16.8333 C25.375 16.8333 31.125 24.2708 33.0417 26.75"
+             style="fill:none;stroke:rgb(192,0,0);stroke-width:5"/>
+
+            <text id="player_name" x="20" y="-5" style="fill:darkblue;font-size:10px;font-weight:bold;text-anchor:middle">NAME</text>
+        </g>
+      </g>
+    
+        <!--add your highscore table here-->
+      <g id="highscoretable" transform="translate(40,40)" style = "visibility:hidden">
+        <rect width="520" height="480"
+         style="fill:white;stroke:red;stroke-width:2"/>
+        <text x="260" y="40"
+         style="fill:red;font-size:30px;font-weight:bold;text-anchor:middle">
+          High Score Table
+        </text>
+        <text id="highscoretext" y="45"
+         style="font-size: 20px;font-weight:bold"/>
+      </g>
+    </g>
+  </g>
+</svg>
